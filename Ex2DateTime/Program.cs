@@ -10,23 +10,24 @@ namespace Ex2DateTime
     {
         static void Main(string[] args)
         {
-
+            
             var current = DateTime.Now;
             Console.WriteLine("Give me a date:          (dd-mm-yyyy)");
             string sDatePrevious = Console.ReadLine();
             DateTime datePrevious = DateTime.ParseExact(sDatePrevious, "d-M-yyyy", null);
             TimeSpan totalDate = DateTime.Now.Subtract(datePrevious);
             Console.WriteLine($"It have been {totalDate.Days} days since {sDatePrevious}");
+            
+            Console.WriteLine("Give me a time          HH:mm tt ");            
+            string userDateString = Console.ReadLine();
+
+            DateTime userDate = DateTime.ParseExact(userDateString, "h:mm tt", null);
+
+            TimeSpan totalTime = DateTime.Now.Subtract(userDate);
+
+            Console.WriteLine($"{userDateString} was {totalTime.Hours} hours and {totalTime.Minutes} minutes ago ");
+
             Console.ReadLine();
-            //Console.WriteLine("Give me a time          HH:mm tt ");
-            
-            
-           /* var notCurrent = DateTime.Parse(Console.ReadLine()) ;
-            var totalCurrent = notCurrent - current;
-            var notCurrentTT = notCurrent.ToString("hh:mm tt");
-            var totalCurrentTT = totalCurrent.ToString("hh:mm tt");
-            Console.WriteLine($"{notCurrentTT} was {totalCurrentTT)} ago ");
-            Console.ReadLine();*/
         }
     }
 }
